@@ -22,9 +22,15 @@ const home = () => {
         }}
         gap="9"
       >
-        <Flex className="layout" gap="9" >
-          <img src="src/assets/logo.svg" alt="logo" />
-          <img src="src/assets/logo.svg" alt="logo" />
+        <Flex className="layout" gap="9">
+          <img
+            src="https://raw.githubusercontent.com/uxderrick/font-pear/ecbd7cb03c14eedaa1c21c05fafcfba3bc527ccf/src/assets/logo.svg"
+            alt="logo"
+          />
+          <img
+            src="https://raw.githubusercontent.com/uxderrick/font-pear/ecbd7cb03c14eedaa1c21c05fafcfba3bc527ccf/src/assets/logo.svg"
+            alt="logo"
+          />
         </Flex>
       </Box>
     </>
