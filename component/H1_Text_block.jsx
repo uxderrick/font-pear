@@ -67,13 +67,13 @@ const H1_Text_block = () => {
           </Flex>
 
           <Text className="download">
-            <a href="">Download Istok Web</a>
+            <a href="">Download Inter</a>
           </Text>
         </Flex>
 
         <Text
           style={{
-            fontFamily: "Inter, sans-serif",
+            fontFamily: "Inter",
             fontSize: "80px",
             fontWeight: "bold",
             color: "#000",
