@@ -1,11 +1,23 @@
-#root {
-  margin: 80px;
-}
-
 .layout {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  justify-content: space-between;
-  align-items: space-between;
+}
+
+.select {
+  margin: 0 auto;
+  width: 20px;
+}
+
+.download {
+  color: var(--colors-green-10, #299764);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px; /* 200% */
+  /* cursor: pointer; */
+}
+
+a {
+  text-decoration: none;
+  color: var(--colors-green-10, #299764);
 }
