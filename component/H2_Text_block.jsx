@@ -34,11 +34,22 @@ const H2_Text_block = ({ fontFamilies }) => {
                 defaultValue="Inter"
                 onValueChange={(value) => setSelectedFontFamily(value)}
               >
-                <Select.Trigger variant="ghost" />
+                <Select.Trigger
+                  variant="ghost"
+                  style={{
+                    color: "#7F7F7F",
+                  }}
+                />
                 <Select.Content>
                   <Select.Group>
                     {fontFamilies.map((family) => (
-                      <Select.Item value={family} key={family}>
+                      <Select.Item
+                        value={family}
+                        key={family}
+                        style={{
+                          fontFamily: `${family}`,
+                        }}
+                      >
                         {family}
                       </Select.Item>
                     ))}
@@ -48,7 +59,12 @@ const H2_Text_block = ({ fontFamilies }) => {
             </Flex>
             <Flex>
               <Select.Root defaultValue="large">
-                <Select.Trigger variant="ghost" />
+                <Select.Trigger
+                  variant="ghost"
+                  style={{
+                    color: "#7F7F7F",
+                  }}
+                />
                 <Select.Content>
                   <Select.Group>
                     <Select.Item value="extra-large">Extra Large</Select.Item>
@@ -60,7 +76,12 @@ const H2_Text_block = ({ fontFamilies }) => {
             </Flex>
             <Flex>
               <Select.Root defaultValue="bold">
-                <Select.Trigger variant="ghost" />
+                <Select.Trigger
+                  variant="ghost"
+                  style={{
+                    color: "#7F7F7F",
+                  }}
+                />
                 <Select.Content>
                   <Select.Group>
                     <Select.Item value="bold">Bold</Select.Item>
