@@ -21,3 +21,12 @@ a {
   text-decoration: none;
   color: var(--colors-green-10, #299764);
 }
+
+.link {
+  color: var(--colors-green-10, #299764);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px; /* 200% */
+  cursor: pointer;
+}
