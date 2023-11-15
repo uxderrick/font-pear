@@ -1,7 +1,12 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import { Flex, Box, Text, Button, Select } from "@radix-ui/themes";
 
-const H1_Text_block = () => {
+const H1_Text_block = ({ fontFamilies }) => {
+  //
+  const [selectedFontFamily, setSelectedFontFamily] = useState("Inter");
+
+  //
   return (
     <>
       {/* Title block */}
@@ -26,13 +31,18 @@ const H1_Text_block = () => {
         >
           <Flex direction="row" gap="7">
             <Flex>
-              <Select.Root defaultValue="sans-serif">
+              <Select.Root
+                defaultValue="Inter"
+                onValueChange={(value) => setSelectedFontFamily(value)}
+              >
                 <Select.Trigger variant="ghost" />
                 <Select.Content>
                   <Select.Group>
-                    <Select.Item value="display">Display</Select.Item>
-                    <Select.Item value="sans-serif">Sans Serif</Select.Item>
-                    <Select.Item value="serif">Serif</Select.Item>
+                    {fontFamilies.map((family) => (
+                      <Select.Item value={family} key={family}>
+                        {family}
+                      </Select.Item>
+                    ))}
                   </Select.Group>
                 </Select.Content>
               </Select.Root>
@@ -55,8 +65,8 @@ const H1_Text_block = () => {
                 <Select.Content>
                   <Select.Group>
                     <Select.Item value="bold">Bold</Select.Item>
-                    <Select.Item value="medium">Medium</Select.Item>
-                    <Select.Item value="normal">Normal</Select.Item>
+                    <Select.Item value="semi-bold">Semi-Bold</Select.Item>
+                    <Select.Item value="regular">Regular</Select.Item>
                   </Select.Group>
                 </Select.Content>
               </Select.Root>
@@ -64,13 +74,21 @@ const H1_Text_block = () => {
           </Flex>
 
           <Text className="download">
-            <a href="">Download Inter</a>
+            <a
+              href={`https://fonts.google.com/specimen/${selectedFontFamily.replace(
+                " ",
+                "+"
+              )}`}
+              target="_blank"
+            >
+              Download {selectedFontFamily}
+            </a>
           </Text>
         </Flex>
 
         <Text
           style={{
-            fontFamily: "Inter",
+            fontFamily: `${selectedFontFamily}`,
             fontSize: "80px",
             fontWeight: "bold",
             color: "#000",
