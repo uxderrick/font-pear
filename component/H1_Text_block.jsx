@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Flex, Box, Text, Button, Select } from "@radix-ui/themes";
+import { DownloadIcon } from "@radix-ui/react-icons";
 
 const H1_Text_block = ({ fontFamilies }) => {
   //
@@ -13,7 +14,7 @@ const H1_Text_block = ({ fontFamilies }) => {
       <Flex direction="column" className="block-gap" gap="4">
         <Flex
           justify={{
-            initial: "flex-start",
+            initial: "between",
             xs: "between",
             sm: "between",
             lg: "between",
@@ -73,7 +74,7 @@ const H1_Text_block = ({ fontFamilies }) => {
             </Flex>
           </Flex>
 
-          <Text className="download">
+          {/* <Text className="download">
             <a
               href={`https://fonts.google.com/specimen/${selectedFontFamily.replace(
                 " ",
@@ -83,7 +84,24 @@ const H1_Text_block = ({ fontFamilies }) => {
             >
               Download {selectedFontFamily}
             </a>
-          </Text>
+          </Text> */}
+          <DownloadIcon
+            className="link"
+            height="20"
+            width="20"
+            onClick={
+              //open font download page
+              () => {
+                window.open(
+                  `https://fonts.google.com/specimen/${selectedFontFamily.replace(
+                    " ",
+                    "+"
+                  )}`,
+                  "_blank"
+                );
+              }
+            }
+          ></DownloadIcon>
         </Flex>
 
         <Text
