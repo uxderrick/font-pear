@@ -4,7 +4,7 @@ import { Flex, Box, Text, Button, Select } from "@radix-ui/themes";
 
 const H1_Text_block = ({ fontFamilies }) => {
   //
-  const [selectedFontFamily, setSelectedFontFamily] = useState("Inter");
+  const [selectedFontFamily, setSelectedFontFamily] = useState("Inter Tight");
 
   //
   return (
