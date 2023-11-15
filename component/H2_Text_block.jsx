@@ -26,40 +26,37 @@ const H2_Text_block = () => {
         >
           <Flex direction="row" gap="7">
             <Flex>
-              <Select.Root defaultValue="apple">
+              <Select.Root defaultValue="sans-serif">
                 <Select.Trigger variant="ghost" />
                 <Select.Content>
                   <Select.Group>
-                    <Select.Label>Fruits</Select.Label>
-                    <Select.Item value="orange">Orange</Select.Item>
-                    <Select.Item value="apple">Apple</Select.Item>
-                    <Select.Item value="grape">Grape</Select.Item>
+                    <Select.Item value="display">Display</Select.Item>
+                    <Select.Item value="sans-serif">Sans Serif</Select.Item>
+                    <Select.Item value="serif">Serif</Select.Item>
                   </Select.Group>
                 </Select.Content>
               </Select.Root>
             </Flex>
             <Flex>
-              <Select.Root defaultValue="apple">
+              <Select.Root defaultValue="large">
                 <Select.Trigger variant="ghost" />
                 <Select.Content>
                   <Select.Group>
-                    <Select.Label>Fruits</Select.Label>
-                    <Select.Item value="orange">Orange</Select.Item>
-                    <Select.Item value="apple">Apple</Select.Item>
-                    <Select.Item value="grape">Grape</Select.Item>
+                    <Select.Item value="large">Large</Select.Item>
+                    <Select.Item value="medium">Medium</Select.Item>
+                    <Select.Item value="small">Small</Select.Item>
                   </Select.Group>
                 </Select.Content>
               </Select.Root>
             </Flex>
             <Flex>
-              <Select.Root defaultValue="apple">
+              <Select.Root defaultValue="bold">
                 <Select.Trigger variant="ghost" />
                 <Select.Content>
                   <Select.Group>
-                    <Select.Label>Fruits</Select.Label>
-                    <Select.Item value="orange">Orange</Select.Item>
-                    <Select.Item value="apple">Apple</Select.Item>
-                    <Select.Item value="grape">Grape</Select.Item>
+                    <Select.Item value="bold">Bold</Select.Item>
+                    <Select.Item value="medium">Medium</Select.Item>
+                    <Select.Item value="normal">Normal</Select.Item>
                   </Select.Group>
                 </Select.Content>
               </Select.Root>
