@@ -42,8 +42,8 @@ const H1_Text_block = () => {
                 <Select.Trigger variant="ghost" />
                 <Select.Content>
                   <Select.Group>
+                    <Select.Item value="extra-large">Extra Large</Select.Item>
                     <Select.Item value="large">Large</Select.Item>
-                    <Select.Item value="medium">Medium</Select.Item>
                     <Select.Item value="small">Small</Select.Item>
                   </Select.Group>
                 </Select.Content>
