@@ -30,3 +30,11 @@ a {
   line-height: 32px; /* 200% */
   cursor: pointer;
 }
+
+.grey-text {
+  color: var(--colors-grey-10, #4f4f4f);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px; /* 200% */
+}
