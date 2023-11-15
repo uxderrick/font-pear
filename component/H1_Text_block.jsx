@@ -32,7 +32,7 @@ const H1_Text_block = ({ fontFamilies }) => {
           <Flex direction="row" gap="7">
             <Flex>
               <Select.Root
-                defaultValue="Inter"
+                defaultValue="Inter Tight"
                 onValueChange={(value) => setSelectedFontFamily(value)}
               >
                 <Select.Trigger variant="ghost" />
