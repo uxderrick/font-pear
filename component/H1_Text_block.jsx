@@ -4,7 +4,7 @@ import { Flex, Box, Text, Button, Select } from "@radix-ui/themes";
 
 const H1_Text_block = ({ fontFamilies }) => {
   //
-  const [selectedFontFamily, setSelectedFontFamily] = useState("Inter");
+  const [selectedFontFamily, setSelectedFontFamily] = useState("Inter Tight");
 
   //
   return (
@@ -32,7 +32,7 @@ const H1_Text_block = ({ fontFamilies }) => {
           <Flex direction="row" gap="7">
             <Flex>
               <Select.Root
-                defaultValue="Inter"
+                defaultValue="Inter Tight"
                 onValueChange={(value) => setSelectedFontFamily(value)}
               >
                 <Select.Trigger variant="ghost" />
