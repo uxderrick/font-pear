@@ -5,6 +5,8 @@ import { DownloadIcon } from "@radix-ui/react-icons";
 
 const H2_Text_block = ({ fontFamilies }) => {
   const [selectedFontFamily, setSelectedFontFamily] = useState("Inter");
+  const [selectedFontSize, setSelectedFontSize] = useState("24px");
+  const [selectedFontWeight, setSelectedFontWeight] = useState("400");
 
   return (
     <>
@@ -58,7 +60,10 @@ const H2_Text_block = ({ fontFamilies }) => {
               </Select.Root>
             </Flex>
             <Flex>
-              <Select.Root defaultValue="large">
+              <Select.Root
+                defaultValue="24px"
+                onValueChange={(value) => setSelectedFontSize(value)}
+              >
                 <Select.Trigger
                   variant="ghost"
                   style={{
@@ -67,15 +72,18 @@ const H2_Text_block = ({ fontFamilies }) => {
                 />
                 <Select.Content>
                   <Select.Group>
-                    <Select.Item value="extra-large">Extra Large</Select.Item>
-                    <Select.Item value="large">Large</Select.Item>
-                    <Select.Item value="small">Small</Select.Item>
+                    <Select.Item value="28px">28px</Select.Item>
+                    <Select.Item value="24px">24px</Select.Item>
+                    <Select.Item value="16px">16px</Select.Item>
                   </Select.Group>
                 </Select.Content>
               </Select.Root>
             </Flex>
             <Flex>
-              <Select.Root defaultValue="bold">
+              <Select.Root
+                defaultValue="400"
+                onValueChange={(value) => setSelectedFontWeight(value)}
+              >
                 <Select.Trigger
                   variant="ghost"
                   style={{
@@ -84,9 +92,9 @@ const H2_Text_block = ({ fontFamilies }) => {
                 />
                 <Select.Content>
                   <Select.Group>
-                    <Select.Item value="bold">Bold</Select.Item>
-                    <Select.Item value="semi-bold">Semi-Bold</Select.Item>
-                    <Select.Item value="regular">Regular</Select.Item>
+                    <Select.Item value="900">Extra-Bold</Select.Item>
+                    <Select.Item value="700">Bold</Select.Item>
+                    <Select.Item value="400">Regular</Select.Item>
                   </Select.Group>
                 </Select.Content>
               </Select.Root>
@@ -127,11 +135,11 @@ const H2_Text_block = ({ fontFamilies }) => {
         <Text
           style={{
             fontFamily: `${selectedFontFamily}`,
-            fontSize: "20px",
-            fontWeight: "400",
+            fontSize: `${selectedFontSize}`,
+            fontWeight: `${selectedFontWeight}`,
             fontStyle: "normal",
             color: "#5D5D5D",
-            lineHeight: "32px",
+            // lineHeight: "32px",
             maxWidth: "900px",
           }}
         >
