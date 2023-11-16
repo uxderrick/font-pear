@@ -46,7 +46,7 @@ const home = () => {
         link.href = `https://fonts.googleapis.com/css?family=${family.replace(
           " ",
           "+"
-        )}`;
+        )} `;
         document.head.appendChild(link);
       });
     }

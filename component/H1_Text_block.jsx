@@ -1,11 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Flex, Box, Text, Button, Select } from "@radix-ui/themes";
+import { Flex, Box, Text, Button, Select, TextArea } from "@radix-ui/themes";
 import { DownloadIcon } from "@radix-ui/react-icons";
 
 const H1_Text_block = ({ fontFamilies }) => {
   //
   const [selectedFontFamily, setSelectedFontFamily] = useState("Inter Tight");
+  const [selectedFontSize, setSelectedFontSize] = useState("80px");
+  const [selectedFontWeight, setSelectedFontWeight] = useState("700");
 
   //
   return (
@@ -60,7 +62,10 @@ const H1_Text_block = ({ fontFamilies }) => {
               </Select.Root>
             </Flex>
             <Flex>
-              <Select.Root defaultValue="large">
+              <Select.Root
+                defaultValue="80px"
+                onValueChange={(value) => setSelectedFontSize(value)}
+              >
                 <Select.Trigger
                   variant="ghost"
                   style={{
@@ -69,15 +74,18 @@ const H1_Text_block = ({ fontFamilies }) => {
                 />
                 <Select.Content>
                   <Select.Group>
-                    <Select.Item value="extra-large">Extra Large</Select.Item>
-                    <Select.Item value="large">Large</Select.Item>
-                    <Select.Item value="small">Small</Select.Item>
+                    <Select.Item value="100px">100px</Select.Item>
+                    <Select.Item value="80px">80px</Select.Item>
+                    <Select.Item value="60px">60px</Select.Item>
                   </Select.Group>
                 </Select.Content>
               </Select.Root>
             </Flex>
             <Flex>
-              <Select.Root defaultValue="bold">
+              <Select.Root
+                defaultValue="700"
+                onValueChange={(value) => setSelectedFontWeight(value)}
+              >
                 <Select.Trigger
                   variant="ghost"
                   style={{
@@ -86,9 +94,9 @@ const H1_Text_block = ({ fontFamilies }) => {
                 />
                 <Select.Content>
                   <Select.Group>
-                    <Select.Item value="bold">Bold</Select.Item>
-                    <Select.Item value="semi-bold">Semi-Bold</Select.Item>
-                    <Select.Item value="regular">Regular</Select.Item>
+                    <Select.Item value="900">Extra-Bold</Select.Item>
+                    <Select.Item value="700">Bold</Select.Item>
+                    <Select.Item value="400">Regular</Select.Item>
                   </Select.Group>
                 </Select.Content>
               </Select.Root>
@@ -128,8 +136,8 @@ const H1_Text_block = ({ fontFamilies }) => {
         <Text
           style={{
             fontFamily: `${selectedFontFamily}`,
-            fontSize: "80px",
-            fontWeight: "bold",
+            fontSize: `${selectedFontSize}`,
+            fontWeight: `${selectedFontWeight}`,
             color: "#000",
             lineHeight: "1.2",
           }}
