@@ -3,6 +3,12 @@
   flex-direction: column;
 }
 
+* {
+  box-sizing: border-box;
+
+  margin: 0;
+}
+
 .select {
   margin: 0 auto;
   width: 20px;
@@ -37,4 +43,8 @@ a {
   font-style: normal;
   font-weight: 400;
   line-height: 32px; /* 200% */
+}
+
+.mouse {
+  cursor: pointer;
 }
