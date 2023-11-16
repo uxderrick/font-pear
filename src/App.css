@@ -4,9 +4,17 @@
 }
 
 * {
-  box-sizing: border-box;
-
+  /* box-sizing: border-box; */
   margin: 0;
+  padding: 0;
+  /* background: #0d0d0d; */
+}
+
+html,
+body {
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .select {

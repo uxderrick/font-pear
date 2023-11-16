@@ -9,8 +9,15 @@ const home = () => {
   // State to store font family names
   const [fontFamilies, setFontFamilies] = useState([]);
   const [theme, setTheme] = useState("light");
+  const [randomClicked, setRandomClicked] = useState(false);
+  const [fontCategory, setFontCategory] = useState("sans-serif");
 
   const API_KEY = "AIzaSyBBDW8L4--iso9JAMOrpytPOLIOPRdCLR4";
+
+  const randomize = () => {
+    //if random button is clicked, set randomClicked to true.
+    randomClicked === true ? setRandomClicked(false) : setRandomClicked(true);
+  };
 
   const toggleTheme = () => {
     if (theme === "light") {
@@ -30,8 +37,10 @@ const home = () => {
             ?.filter(
               (item) =>
                 item.category === "sans-serif" ||
-                item.category === "display" ||
-                item.category === "monospace"
+                "serif" ||
+                "display" ||
+                // "handwriting" ||
+                "monospace"
             )
             .map((item) => item.family) || [];
 
@@ -61,11 +70,17 @@ const home = () => {
     }
   }, [fontFamilies]);
 
+  //html body background color
+  useEffect(() => {
+    document.body.style.backgroundColor =
+      theme === "light" ? "#fff" : "#0d0d0d";
+  }, [theme]);
+
   //
   return (
     <>
       <Box
-        className="box"
+        className="box "
         px={{
           initial: "5",
           xs: "5",
@@ -81,42 +96,54 @@ const home = () => {
           xl: "9",
         }}
         style={{
-          backgroundColor: theme === "light" ? "#fff" : "#0d0d0d",
+          // backgroundColor: theme === "light" ? "#fff" : "#0d0d0d",
         }}
       >
-        <Flex className="layout" gap="9" justify="between" direction="column">
+        <Flex className="layout " gap="9" justify="between" direction="column">
           {/* Header block */}
           <Flex justify="between" align="center">
             <img
-              src="https://raw.githubusercontent.com/uxderrick/font-pear/ecbd7cb03c14eedaa1c21c05fafcfba3bc527ccf/src/assets/logo.png"
+              src="https://github.com/uxderrick/font-pear/blob/main/src/assets/Logo.png?raw=true"
               alt="logo"
               width="100"
             />
 
             <Flex gap="5" align="center">
-              <Button>Randomize</Button>
+              <Button onClick={randomize}>Randomize</Button>
 
               {theme === "light" ? (
                 <MoonIcon
                   height="25"
                   width="25"
                   onClick={toggleTheme}
-                  className="mouse"
+                  className="mouse "
                 ></MoonIcon>
               ) : (
                 <SunIcon
                   height="25"
                   width="25"
                   onClick={toggleTheme}
-                  className="mouse"
+                  className="mouse "
                   color="white"
                 ></SunIcon>
               )}
             </Flex>
           </Flex>
+
           <Flex direction="column" gap="5">
-            <H1_Text_block fontFamilies={fontFamilies} key="h1"></H1_Text_block>
-            <H2_Text_block fontFamilies={fontFamilies} key="h2"></H2_Text_block>
+            <H1_Text_block
+              fontFamilies={fontFamilies}
+              key="h1"
+              theme={theme}
+              randomClicked={randomClicked}
+              setRandomClicked={setRandomClicked}
+            ></H1_Text_block>
+            <H2_Text_block
+              fontFamilies={fontFamilies}
+              key="h2"
+              theme={theme}
+              randomClicked={randomClicked}
+            ></H2_Text_block>
           </Flex>
         </Flex>
       </Box>

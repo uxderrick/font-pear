@@ -3,10 +3,27 @@ import { useState, useEffect } from "react";
 import { Flex, Box, Text, Button, Select } from "@radix-ui/themes";
 import { DownloadIcon } from "@radix-ui/react-icons";
 
-const H2_Text_block = ({ fontFamilies }) => {
+const H2_Text_block = ({
+  fontFamilies,
+  theme,
+  randomClicked,
+  setRandomClicked,
+}) => {
   const [selectedFontFamily, setSelectedFontFamily] = useState("Inter");
   const [selectedFontSize, setSelectedFontSize] = useState("24px");
   const [selectedFontWeight, setSelectedFontWeight] = useState("400");
+
+  //randomize font whem random button is clicked
+  useEffect(() => {
+    if (randomClicked === true) {
+      const randomFontFamily =
+        fontFamilies[Math.floor(Math.random() * fontFamilies.length)];
+      // setRandomFamily(randomFontFamily);
+      setSelectedFontFamily(randomFontFamily);
+      // setRandomClicked(false);
+      // console.log({ selectedFontFamily });
+    }
+  }, [randomClicked, fontFamilies, setRandomClicked]);
 
   return (
     <>
@@ -33,7 +50,7 @@ const H2_Text_block = ({ fontFamilies }) => {
           <Flex direction="row" gap="7">
             <Flex>
               <Select.Root
-                defaultValue="Inter"
+                value={randomClicked ? selectedFontFamily : "Inter Tight"}
                 onValueChange={(value) => setSelectedFontFamily(value)}
               >
                 <Select.Trigger
@@ -101,18 +118,6 @@ const H2_Text_block = ({ fontFamilies }) => {
             </Flex>
           </Flex>
 
-          {/* <Text className="download">
-            <a
-              href={`https://fonts.google.com/specimen/${selectedFontFamily.replace(
-                " ",
-                "+"
-              )}`}
-              target="_blank"
-            >
-              Download {selectedFontFamily}
-            </a>
-          </Text> */}
-
           <DownloadIcon
             className="link"
             height="20"
@@ -138,7 +143,8 @@ const H2_Text_block = ({ fontFamilies }) => {
             fontSize: `${selectedFontSize}`,
             fontWeight: `${selectedFontWeight}`,
             fontStyle: "normal",
-            color: "#5D5D5D",
+            color: theme === "light" ? "gray" : "#E9E9E9",
+
             // lineHeight: "32px",
             maxWidth: "900px",
           }}

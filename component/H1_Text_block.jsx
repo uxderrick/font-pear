@@ -3,17 +3,35 @@ import { useState, useEffect } from "react";
 import { Flex, Box, Text, Button, Select, TextArea } from "@radix-ui/themes";
 import { DownloadIcon } from "@radix-ui/react-icons";
 
-const H1_Text_block = ({ fontFamilies }) => {
+const H1_Text_block = ({
+  fontFamilies,
+  theme,
+  randomClicked,
+  setRandomClicked,
+}) => {
   //
   const [selectedFontFamily, setSelectedFontFamily] = useState("Inter Tight");
   const [selectedFontSize, setSelectedFontSize] = useState("80px");
   const [selectedFontWeight, setSelectedFontWeight] = useState("700");
+  // const [randomFamily, setRandomFamily] = useState("");
+
+  //randomize font whem random button is clicked
+  useEffect(() => {
+    if (randomClicked === true) {
+      const randomFontFamily =
+        fontFamilies[Math.floor(Math.random() * fontFamilies.length)];
+      // setRandomFamily(randomFontFamily);
+      setSelectedFontFamily(randomFontFamily);
+      // setRandomClicked(false);
+      // console.log({ selectedFontFamily });
+    }
+  }, [randomClicked, fontFamilies, setRandomClicked]);
 
   //
   return (
     <>
       {/* Title block */}
-      <Flex direction="column" className="block-gap" gap="4">
+      <Flex direction="column" className="block-gap " gap="4">
         <Flex
           justify={{
             initial: "between",
@@ -31,11 +49,12 @@ const H1_Text_block = ({ fontFamilies }) => {
           }}
           align="center"
           wrap="wrap"
+          className=""
         >
-          <Flex direction="row" gap="7">
-            <Flex>
+          <Flex direction="row" gap="7" className="">
+            <Flex className="">
               <Select.Root
-                defaultValue="Inter Tight"
+                value={randomClicked ? selectedFontFamily : "Inter Tight"}
                 onValueChange={(value) => setSelectedFontFamily(value)}
               >
                 <Select.Trigger
@@ -67,6 +86,7 @@ const H1_Text_block = ({ fontFamilies }) => {
                 onValueChange={(value) => setSelectedFontSize(value)}
               >
                 <Select.Trigger
+                  className=""
                   variant="ghost"
                   style={{
                     color: "#7F7F7F",
@@ -103,19 +123,8 @@ const H1_Text_block = ({ fontFamilies }) => {
             </Flex>
           </Flex>
 
-          {/* <Text className="download">
-            <a
-              href={`https://fonts.google.com/specimen/${selectedFontFamily.replace(
-                " ",
-                "+"
-              )}`}
-              target="_blank"
-            >
-              Download {selectedFontFamily}
-            </a>
-          </Text> */}
           <DownloadIcon
-            className="link"
+            className="link "
             height="20"
             width="20"
             onClick={
@@ -134,11 +143,12 @@ const H1_Text_block = ({ fontFamilies }) => {
         </Flex>
 
         <Text
+          className=""
           style={{
             fontFamily: `${selectedFontFamily}`,
             fontSize: `${selectedFontSize}`,
             fontWeight: `${selectedFontWeight}`,
-            color: "#000",
+            color: theme === "light" ? "#0d0d0d" : "white",
             lineHeight: "1.2",
           }}
         >
