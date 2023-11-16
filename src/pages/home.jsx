@@ -8,6 +8,7 @@ import axios from "axios";
 const home = () => {
   // State to store font family names
   const [fontFamilies, setFontFamilies] = useState([]);
+  const [theme, setTheme] = useState("light");
 
   const API_KEY = "AIzaSyBBDW8L4--iso9JAMOrpytPOLIOPRdCLR4";
 

@@ -92,7 +92,7 @@ const H2_Text_block = ({ fontFamilies }) => {
                 />
                 <Select.Content>
                   <Select.Group>
-                    <Select.Item value="900">Extra-Bold</Select.Item>
+                    {/* <Select.Item value="900">Extra-Bold</Select.Item> */}
                     <Select.Item value="700">Bold</Select.Item>
                     <Select.Item value="400">Regular</Select.Item>
                   </Select.Group>
