@@ -95,9 +95,11 @@ const home = () => {
           lg: "9",
           xl: "9",
         }}
-        style={{
-          // backgroundColor: theme === "light" ? "#fff" : "#0d0d0d",
-        }}
+        style={
+          {
+            // backgroundColor: theme === "light" ? "#fff" : "#0d0d0d",
+          }
+        }
       >
         <Flex className="layout " gap="9" justify="between" direction="column">
           {/* Header block */}
