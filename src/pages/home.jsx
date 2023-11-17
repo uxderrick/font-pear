@@ -12,8 +12,6 @@ const home = () => {
   const [randomClicked, setRandomClicked] = useState(false);
   const [fontCategory, setFontCategory] = useState("sans-serif");
 
-  const API_KEY = "AIzaSyBBDW8L4--iso9JAMOrpytPOLIOPRdCLR4";
-
   const randomize = () => {
     //if random button is clicked, set randomClicked to true.
     randomClicked === true ? setRandomClicked(false) : setRandomClicked(true);
@@ -29,7 +27,11 @@ const home = () => {
 
   useEffect(() => {
     axios
-      .get(`https://www.googleapis.com/webfonts/v1/webfonts?key=${API_KEY}`)
+      .get(
+        `https://www.googleapis.com/webfonts/v1/webfonts?key=${
+          import.meta.env.VITE_API_KEY
+        }`
+      )
       .then((res) => {
         // Filter font families based on category
         const sansSerifFamilies =
