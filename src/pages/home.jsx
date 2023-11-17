@@ -46,8 +46,6 @@ const home = () => {
 
         // Set the sans-serif font families in the state
         setFontFamilies(sansSerifFamilies);
-
-        // console.log(sansSerifFamilies);
       })
       .catch((err) => {
         console.error("Error fetching font families:", err);
@@ -95,11 +93,6 @@ const home = () => {
           lg: "9",
           xl: "9",
         }}
-        style={
-          {
-            // backgroundColor: theme === "light" ? "#fff" : "#0d0d0d",
-          }
-        }
       >
         <Flex className="layout " gap="9" justify="between" direction="column">
           {/* Header block */}

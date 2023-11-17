@@ -13,17 +13,15 @@ const H1_Text_block = ({
   const [selectedFontFamily, setSelectedFontFamily] = useState("Inter Tight");
   const [selectedFontSize, setSelectedFontSize] = useState("80px");
   const [selectedFontWeight, setSelectedFontWeight] = useState("700");
-  // const [randomFamily, setRandomFamily] = useState("");
+  const [randomFamily, setRandomFamily] = useState("");
 
   //randomize font whem random button is clicked
   useEffect(() => {
     if (randomClicked === true) {
       const randomFontFamily =
         fontFamilies[Math.floor(Math.random() * fontFamilies.length)];
-      // setRandomFamily(randomFontFamily);
+      setRandomFamily(randomFontFamily);
       setSelectedFontFamily(randomFontFamily);
-      // setRandomClicked(false);
-      // console.log({ selectedFontFamily });
     }
   }, [randomClicked, fontFamilies, setRandomClicked]);
 
@@ -54,7 +52,7 @@ const H1_Text_block = ({
           <Flex direction="row" gap="7" className="">
             <Flex className="">
               <Select.Root
-                value={randomClicked ? selectedFontFamily : "Inter Tight"}
+                value={randomClicked ? selectedFontFamily : selectedFontFamily}
                 onValueChange={(value) => setSelectedFontFamily(value)}
               >
                 <Select.Trigger
@@ -114,7 +112,6 @@ const H1_Text_block = ({
                 />
                 <Select.Content>
                   <Select.Group>
-                    {/* <Select.Item value="900">Extra-Bold</Select.Item> */}
                     <Select.Item value="700">Bold</Select.Item>
                     <Select.Item value="400">Regular</Select.Item>
                   </Select.Group>
